@@ -350,6 +350,82 @@ class HashTable(object):
     
     def __repr__(self): 
         return "Keys:\n" + str(self.keys) + "\nValues:\n" + str(self.values)
+
+class BinaryHeap():
+    """The BinaryHeap class implements the Binary Heap Abstract 
+    Data Type as a list of values, where the index p of a parent
+    can be calculated from the index c of a child as c // 2.
+    """
+    def __init__(self):
+        self.heap_list = [0]  # not used. Here just to make parent-
+                             # child calculations work nicely.
+        # Note that current size of heap = len(self.heapList) - 1
+
+    def insert(self,value):
+        """Inserts a value into the heap by:
+        a. adding it to the end of the list, and then
+        b. "percolating" it up to an appropriate position
+        """
+        pass
+
+    def percolate_up(self, i):
+        """Beginning at i, check to see if parent above is greater than
+        value at i. If so, percolate i upwards to parent's position.
+        """
+        pass 
+
+    def del_min(self):
+        """This is a bit trickier. It's easy to return the minimum item,
+        the first item on the list, but how do we readjust the heap then?
+        """
+        pass
+
+    def percolate_down(self,i):
+        """Moves the item at i down to a correct level in the heap. To
+        work correctly, needs to identify the minimum child for parent i.
+        """
+        pass
+
+    def find_min(self):
+        """Returns the minimum item in the heap, without removing it.
+        """
+        return self.heap_list[1]
+
+    def is_empty(self):
+        return len(self.heap_list) - 1 == 0
+
+    def size(self):
+        return len(self.heap_list) - 1
+
+    def build_heap(self, list_of_keys):
+        """Returns a new heap based on a pre-existing list of key 
+        values."""
+        pass
+
+    def __repr__(self):
+        return "BinaryHeap" + str(self.heap_list)
+
+def main():
+    print("Demonstrating minHeap binary tree")
+    bh = BinaryHeap()
+    bh.insert(5)
+    print(bh)
+    '''
+    bh.insert(7)
+    bh.insert(3)
+    bh.insert(11)
+    bh.insert(1)
+    bh.insert(50)
+    bh.insert(15)
+    print(bh)
+    print(bh.find_min())
+    print(bh.del_min())
+    print(bh)
+    '''
+
+if __name__ == "__main__":
+    main()
+ 
     
  
 def test_linear_searcher():
