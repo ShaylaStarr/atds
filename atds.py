@@ -253,10 +253,6 @@ class BinarySearcher:
                 low = mid + 1
  
         return None
-    
- 
- 
- 
  
 class Queue: 
     def __init__(self): 
@@ -362,30 +358,43 @@ class BinaryHeap():
         # Note that current size of heap = len(self.heapList) - 1
 
     def insert(self,value):
-        """Inserts a value into the heap by:
+        """ Inserts a value into the heap by:
         a. adding it to the end of the list, and then
         b. "percolating" it up to an appropriate position
         """
-        pass
+        self._heap.append(item)
+        self._percolate_up(len(self._heap) - 1)
 
     def percolate_up(self, i):
         """Beginning at i, check to see if parent above is greater than
         value at i. If so, percolate i upwards to parent's position.
         """
-        pass 
+        while (i - 1) // 2 >= 0:
+        parent_idx = (i - 1) // 2
+        if self._heap[i] < self._heap[parent_idx]:
+            self._heap[i], self._heap[parent_idx] = (
+                self._heap[parent_idx],
+                self._heap[i],
+            )
+        i = parent_idx
 
     def del_min(self):
         """This is a bit trickier. It's easy to return the minimum item,
         the first item on the list, but how do we readjust the heap then?
         """
-        pass
+        self._heap 
 
     def percolate_down(self,i):
         """Moves the item at i down to a correct level in the heap. To
         work correctly, needs to identify the minimum child for parent i.
         """
-        pass
-
+        while 2 * i + 1 < len (self._heap):
+         sm_child = self>-get_min_child(i)
+         if self._heap[i] > self._heap[sm_child]:
+          self._heap[i], self._heap[sm_child] = (self._heap[sm_child], self._heap[i])
+         else: 
+          break
+         i = sm_child 
     def find_min(self):
         """Returns the minimum item in the heap, without removing it.
         """
